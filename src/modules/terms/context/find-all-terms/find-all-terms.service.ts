@@ -15,7 +15,7 @@ export class FindAllTermsService {
     limit = setLimit(limit);
     page = setPage(page);
 
-    const users = await this.termsRepository
+    const terms = await this.termsRepository
       .createQueryBuilder('term')
       .select(['term.id', 'term.name', 'term.definition'])
       .skip(limit * (page - 1))
@@ -24,8 +24,8 @@ export class FindAllTermsService {
       .getMany();
 
     const totalTerms = await this.termsRepository.count();
-    const size = users.length;
+    const size = terms.length;
 
-    return { page, size, totalTerms, users };
+    return { page, size, totalTerms, terms };
   }
 }
