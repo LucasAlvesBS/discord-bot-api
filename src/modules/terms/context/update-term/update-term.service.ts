@@ -16,7 +16,11 @@ export class UpdateTermService {
     const term = await this.termsRepository.findOneBy({ id });
     checkExistence(term);
     const { name } = body;
-    const termInBody = await this.termsRepository.findOneBy({ name });
+    const termInBody = await this.termsRepository
+      .createQueryBuilder('term')
+      .select(['term.name'])
+      .where('term.name = :name', { name: name })
+      .getOne();
     checkDuplicate(termInBody);
     const termUpdated = this.termsRepository.merge(term, body);
     await this.termsRepository.save(termUpdated);
