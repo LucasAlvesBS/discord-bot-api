@@ -10,6 +10,4 @@ RUN npm install db-migrate-pg \
 
 COPY . /usr/src/app/
 
-RUN 
-
 CMD ["npm", "run", "start"]

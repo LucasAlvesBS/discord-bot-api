@@ -1,8 +1,8 @@
+import { checkDuplicate } from '@helpers/functions/check-duplicate.function';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateTermDto } from '@shared/dtos/terms/create-term.dto';
 import { Term } from '@shared/entities/term.entity';
-import { checkDuplicate } from '@shared/helpers/functions/check-duplicate.function';
 import { Repository } from 'typeorm';
 
 @Injectable()

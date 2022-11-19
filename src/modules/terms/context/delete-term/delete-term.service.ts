@@ -1,7 +1,7 @@
+import { checkExistence } from '@helpers/functions/check-existence.function';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Term } from '@shared/entities/term.entity';
-import { checkExistence } from '@shared/helpers/functions/check-existence.function';
 import { Repository } from 'typeorm';
 
 @Injectable()

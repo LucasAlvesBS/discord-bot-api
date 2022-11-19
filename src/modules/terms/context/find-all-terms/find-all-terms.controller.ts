@@ -1,3 +1,4 @@
+import { DefaultPagination } from '@helpers/paginations/default.pagination';
 import { Controller, Get, Query } from '@nestjs/common';
 import {
   ApiOperation,
@@ -6,7 +7,6 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { TermSwagger } from '@shared/swaggers/term.swagger';
-import { DefaultPagination } from '@shared/helpers/paginations/default.pagination';
 import { FindAllTermsService } from './find-all-terms.service';
 
 @ApiTags('terms')

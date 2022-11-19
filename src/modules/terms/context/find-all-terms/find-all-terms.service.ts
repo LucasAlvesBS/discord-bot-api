@@ -1,8 +1,8 @@
+import { setLimit } from '@helpers/functions/set-limit.function';
+import { setPage } from '@helpers/functions/set-page.function';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Term } from '@shared/entities/term.entity';
-import { setLimit } from '@shared/helpers/functions/set-limit.function';
-import { setPage } from '@shared/helpers/functions/set-page.function';
 import { Repository } from 'typeorm';
 
 @Injectable()

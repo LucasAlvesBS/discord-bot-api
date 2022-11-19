@@ -1,9 +1,10 @@
+import { checkBody } from '@helpers/functions/check-body.function';
+import { checkDuplicate } from '@helpers/functions/check-duplicate.function';
+import { checkExistence } from '@helpers/functions/check-existence.function';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UpdateTermDto } from '@shared/dtos/terms/update-term.dto';
 import { Term } from '@shared/entities/term.entity';
-import { checkDuplicate } from '@shared/helpers/functions/check-duplicate.function';
-import { checkExistence } from '@shared/helpers/functions/check-existence.function';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -13,6 +14,7 @@ export class UpdateTermService {
   ) {}
 
   async execute(id: string, body: UpdateTermDto) {
+    checkBody(body);
     const term = await this.termsRepository.findOneBy({ id });
     checkExistence(term);
     const { name } = body;

@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, ParseUUIDPipe } from '@nestjs/common';
 import {
   ApiOperation,
   ApiOkResponse,
@@ -15,7 +15,7 @@ import { FindOneTermService } from './find-one-term.service';
 export class FindOneTermController {
   constructor(private readonly findOneTermService: FindOneTermService) {}
 
-  @Get(':name')
+  @Get(':id')
   @ApiOperation({ summary: 'Take only one term' })
   @ApiOkResponse({
     type: TermSwagger,
@@ -24,11 +24,11 @@ export class FindOneTermController {
     description: 'Term not found',
   })
   @ApiParam({
-    name: 'name',
-    example: 'Havaianas',
+    name: 'id',
+    example: '56ab8340-53fe-4046-92e4-af14a6388c37',
     required: true,
   })
-  async handle(@Param('name') name: string): Promise<Term> {
+  async handle(@Param('id', new ParseUUIDPipe()) name: string): Promise<Term> {
     return await this.findOneTermService.execute(name);
   }
 }

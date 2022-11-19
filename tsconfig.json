@@ -22,7 +22,7 @@
       "@configs/*": ["src/configs/*"],
       "@modules/*": ["src/modules/*"],
       "@shared/*": ["src/shared/*"],
-      "@typeorm/*": ["src/typeorm/*"]
+      "@helpers/*": ["src/helpers/*"]
     },  
   }
 }

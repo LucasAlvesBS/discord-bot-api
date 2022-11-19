@@ -8,5 +8,5 @@ export const envConfig = {
   dbUsername: process.env.DB_USERNAME,
   dbPassword: process.env.DB_PASSWORD,
   dbName: process.env.DB_NAME,
-  apiPort: process.env.API_PORT,
+  apiPort: process.env.PORT,
 };
