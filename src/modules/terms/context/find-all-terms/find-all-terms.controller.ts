@@ -6,7 +6,7 @@ import {
   ApiQuery,
   ApiTags,
 } from '@nestjs/swagger';
-import { TermSwagger } from '@shared/swaggers/term.swagger';
+import { TermSwagger } from '@shared/swaggers/terms/term.swagger';
 import { FindAllTermsService } from './find-all-terms.service';
 
 @ApiTags('terms')
@@ -22,8 +22,8 @@ export class FindAllTermsController {
   @ApiQuery({ name: 'page', required: false, type: Number })
   @ApiQuery({ name: 'limit', required: false, type: Number })
   async handle(
-    @Query() { page, limit }: DefaultPagination,
+    @Query() { page, limit, name }: DefaultPagination,
   ): Promise<Record<string, unknown>> {
-    return await this.findAllTermsService.execute(page, limit);
+    return await this.findAllTermsService.execute(page, limit, name);
   }
 }

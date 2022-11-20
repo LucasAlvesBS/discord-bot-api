@@ -6,7 +6,7 @@ import {
   ApiParam,
   ApiTags,
 } from '@nestjs/swagger';
-import { TermSwagger } from '@shared/swaggers/term.swagger';
+import { TermSwagger } from '@shared/swaggers/terms/term.swagger';
 import { Term } from '@shared/entities/term.entity';
 import { FindOneTermService } from './find-one-term.service';
 

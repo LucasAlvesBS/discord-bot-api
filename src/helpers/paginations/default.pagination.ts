@@ -1,6 +1,6 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { IsInt, IsNumber, IsOptional, Min } from 'class-validator';
+import { IsInt, IsNumber, IsOptional, IsString, Min } from 'class-validator';
 
 export class DefaultPagination {
   @IsOptional()
@@ -24,4 +24,13 @@ export class DefaultPagination {
     default: 10,
   })
   limit?: number;
+
+  @IsOptional()
+  @Type(() => String)
+  @IsString()
+  @ApiPropertyOptional({
+    description: 'Search by name',
+    default: 'Hashing',
+  })
+  name?: string;
 }

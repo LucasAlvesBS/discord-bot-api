@@ -1,3 +1,4 @@
+import { searchByQuery } from '@helpers/functions/search-by-query.function';
 import { setLimit } from '@helpers/functions/set-limit.function';
 import { setPage } from '@helpers/functions/set-page.function';
 import { Injectable } from '@nestjs/common';
@@ -11,13 +12,15 @@ export class FindAllTermsService {
     @InjectRepository(Term) private readonly termsRepository: Repository<Term>,
   ) {}
 
-  async execute(page: number, limit: number) {
+  async execute(page: number, limit: number, name: string) {
+    let filterOptions: Record<string, unknown>;
     limit = setLimit(limit);
     page = setPage(page);
 
     const terms = await this.termsRepository
       .createQueryBuilder('term')
       .select(['term.id', 'term.name', 'term.definition'])
+      .orWhere(searchByQuery(name, filterOptions))
       .skip(limit * (page - 1))
       .take(limit)
       .orderBy('term.name', 'ASC')

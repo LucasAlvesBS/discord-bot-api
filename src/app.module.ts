@@ -1,3 +1,5 @@
+import { InvitersModule } from '@modules/inviters/inviters.module';
+import { MembersModule } from '@modules/members/members.module';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -20,6 +22,8 @@ import { TermsModule } from './modules/terms/terms.module';
       migrations: ['dist/**/migrations/*.{ts,js}'],
     }),
     TermsModule,
+    InvitersModule,
+    MembersModule,
   ],
   controllers: [],
   providers: [],

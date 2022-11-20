@@ -17,7 +17,7 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { UpdateTermDto } from '@shared/dtos/terms/update-term.dto';
-import { CreateTermSwagger } from '@shared/swaggers/create-term.swagger';
+import { CreateTermSwagger } from '@shared/swaggers/terms/create-term.swagger';
 import { UpdateTermService } from './update-term.service';
 
 @ApiTags('terms')

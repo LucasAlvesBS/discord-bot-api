@@ -8,15 +8,15 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { CreateTermDto } from '@shared/dtos/terms/create-term.dto';
-import { TermSwagger } from '@shared/swaggers/term.swagger';
+import { TermSwagger } from '@shared/swaggers/terms/term.swagger';
 import { Term } from '@shared/entities/term.entity';
 import { CreateTermService } from './create-term.service';
-import { CreateTermSwagger } from '@shared/swaggers/create-term.swagger';
+import { CreateTermSwagger } from '@shared/swaggers/terms/create-term.swagger';
 
 @ApiTags('terms')
 @Controller('api/terms')
 export class CreateTermController {
-  constructor(private readonly findAllTermsService: CreateTermService) {}
+  constructor(private readonly createTermService: CreateTermService) {}
 
   @Post()
   @ApiOperation({ summary: 'Create a term' })
@@ -36,6 +36,6 @@ export class CreateTermController {
     type: CreateTermSwagger,
   })
   async handle(@Body() body: CreateTermDto): Promise<Term> {
-    return await this.findAllTermsService.execute(body);
+    return await this.createTermService.execute(body);
   }
 }
