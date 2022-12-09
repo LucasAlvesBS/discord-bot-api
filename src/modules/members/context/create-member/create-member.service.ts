@@ -16,7 +16,7 @@ export class CreateMemberService {
     const { userId } = body;
     const foundMember = await this.membersRepository.findOneBy({ userId });
     checkDuplicate(foundMember);
-    const member = this.membersRepository.create(body);
-    return await this.membersRepository.save(member);
+    const member = await this.membersRepository.save(body);
+    return member;
   }
 }

@@ -15,10 +15,6 @@ export class CreateInviterDto {
 
   @IsNotEmpty()
   @IsInt()
-  occasionalInvitations: number;
-
-  @IsNotEmpty()
-  @IsInt()
   daysCounter: number;
 
   @IsNotEmpty()

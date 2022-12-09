@@ -23,13 +23,10 @@ export class Inviter {
   @Column({ name: 'total_invitations' })
   totalInvitations: number;
 
-  @Column({ name: 'occasional_invitations' })
-  occasionalInvitations: number;
-
   @Column({ name: 'days_counter' })
   daysCounter: number;
 
-  @Column({ name: 'invalid_account' })
+  @Column({ name: 'invalid_account', default: false })
   invalidAccount: boolean;
 
   @OneToMany(() => Member, (members) => members.inviter)

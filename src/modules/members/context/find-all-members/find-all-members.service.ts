@@ -28,7 +28,6 @@ export class FindAllMembersService {
         'inviter.guildId',
         'inviter.userId',
         'inviter.totalInvitations',
-        'inviter.occasionalInvitations',
         'inviter.daysCounter',
         'inviter.invalidAccount',
       ])

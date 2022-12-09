@@ -29,16 +29,13 @@ export class CreateInviters1668960771886 implements MigrationInterface {
             type: 'int',
           },
           {
-            name: 'occasional_invitations',
-            type: 'int',
-          },
-          {
             name: 'days_counter',
             type: 'int',
           },
           {
             name: 'invalid_account',
             type: 'boolean',
+            default: false,
           },
           {
             name: 'created_at',

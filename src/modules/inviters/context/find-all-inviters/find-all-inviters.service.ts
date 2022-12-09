@@ -23,13 +23,12 @@ export class FindAllInvitersService {
         'inviter.guildId',
         'inviter.userId',
         'inviter.totalInvitations',
-        'inviter.occasionalInvitations',
         'inviter.daysCounter',
         'inviter.invalidAccount',
       ])
       .skip(limit * (page - 1))
       .take(limit)
-      .orderBy('term.totalInvitations', 'DESC')
+      .orderBy('inviter.totalInvitations', 'DESC')
       .getMany();
 
     const totalInviters = await this.invitersRepository.count();

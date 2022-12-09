@@ -22,11 +22,6 @@ export class InviterSwagger {
   totalInvitations: number;
 
   @ApiProperty({
-    example: 1,
-  })
-  occasionalInvitations: number;
-
-  @ApiProperty({
     example: 20,
   })
   daysCounter: number;

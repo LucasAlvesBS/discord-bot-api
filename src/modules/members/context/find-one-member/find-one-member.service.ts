@@ -24,7 +24,6 @@ export class FindOneMemberService {
         'inviter.guildId',
         'inviter.userId',
         'inviter.totalInvitations',
-        'inviter.occasionalInvitations',
         'inviter.daysCounter',
         'inviter.invalidAccount',
       ])

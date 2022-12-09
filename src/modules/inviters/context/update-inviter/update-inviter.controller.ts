@@ -1,21 +1,14 @@
-import {
-  Body,
-  Controller,
-  HttpCode,
-  HttpStatus,
-  Param,
-  ParseUUIDPipe,
-  Patch,
-} from '@nestjs/common';
+import { Body, Controller, Param, ParseUUIDPipe, Patch } from '@nestjs/common';
 import {
   ApiOperation,
   ApiNotFoundResponse,
   ApiParam,
-  ApiNoContentResponse,
   ApiBody,
   ApiTags,
+  ApiOkResponse,
 } from '@nestjs/swagger';
 import { UpdateInviterDto } from '@shared/dtos/inviters/update-inviter.dto';
+import { Inviter } from '@shared/entities/inviter.entity';
 import { UpdateInviterSwagger } from '@shared/swaggers/inviters/update-inviter.swagger';
 import { UpdateInviterService } from './update-inviter.service';
 
@@ -26,7 +19,7 @@ export class UpdateInviterController {
 
   @Patch(':id')
   @ApiOperation({ summary: 'Update an inviter' })
-  @ApiNoContentResponse({
+  @ApiOkResponse({
     description: 'Inviter updated',
   })
   @ApiNotFoundResponse({
@@ -41,11 +34,10 @@ export class UpdateInviterController {
     description: 'Fields to update data',
     type: UpdateInviterSwagger,
   })
-  @HttpCode(HttpStatus.NO_CONTENT)
   async handle(
     @Param('id', new ParseUUIDPipe()) id: string,
     @Body() body: UpdateInviterDto,
-  ): Promise<void> {
+  ): Promise<Inviter> {
     return await this.updateInviterService.execute(id, body);
   }
 }

@@ -7,10 +7,6 @@ export class UpdateInviterDto {
 
   @IsOptional()
   @IsInt()
-  occasionalInvitations?: number;
-
-  @IsOptional()
-  @IsInt()
   daysCounter?: number;
 
   @IsOptional()

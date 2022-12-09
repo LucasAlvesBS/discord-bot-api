@@ -18,6 +18,6 @@ export class UpdateInviterService {
     const inviter = await this.invitersRepository.findOneBy({ id });
     checkExistence(inviter);
     const inviterUpdated = this.invitersRepository.merge(inviter, body);
-    await this.invitersRepository.save(inviterUpdated);
+    return await this.invitersRepository.save(inviterUpdated);
   }
 }

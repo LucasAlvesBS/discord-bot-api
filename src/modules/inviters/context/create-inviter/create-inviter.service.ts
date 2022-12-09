@@ -16,7 +16,7 @@ export class CreateInviterService {
     const { userId } = body;
     const foundInviter = await this.invitersRepository.findOneBy({ userId });
     checkDuplicate(foundInviter);
-    const inviter = this.invitersRepository.create(body);
-    return await this.invitersRepository.save(inviter);
+    const inviter = await this.invitersRepository.save(body);
+    return inviter;
   }
 }
